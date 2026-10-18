@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # MealMate – Smart Food Donation & Expiry Tracker
 
 Reduce Food Waste. Track Every Donation. Verify Every Transaction.
@@ -113,3 +114,7 @@ This project is developed for educational and demonstration purposes. The local 
 
 Developed as an academic blockchain project.
 
+=======
+# MealMate
+A blockchain-based food donation platform that connects donors, NGOs, and recipients while tracking food expiry, ensuring donation transparency, and reducing food waste through smart contracts.
+>>>>>>> second/main

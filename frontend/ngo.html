@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>NGO Dashboard - MealMate</title>
+  <link rel="icon" type="image/png" href="images/logo.png" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <header>
+    <div class="brand"><img src="images/logo.png" alt="MealMate" />MealMate</div>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="donor.html">Donor</a>
+      <a href="ngo.html">NGO</a>
+      <a href="verify.html">Verify</a>
+    </nav>
+    <span id="wallet-status">Not connected</span>
+  </header>
+
+  <main>
+    <div class="card">
+      <h2>NGO registration</h2>
+      <p class="hint">Register once per wallet. The contract admin must approve your NGO before you can accept donations. Only your wallet's role is written on-chain — organization name and location stay in this browser.</p>
+      <p id="ngo-profile-banner" class="hint" style="display:none; font-weight:600;"></p>
+      <label>Organization name</label>
+      <input id="org-name" placeholder="e.g. Helping Hands NGO" />
+      <label>Location</label>
+      <input id="org-location" placeholder="e.g. Mumbai" />
+      <button id="register-ngo-btn">Register as NGO</button>
+    </div>
+
+    <div class="card" id="admin-panel" style="display:none;">
+      <h2>Admin controls</h2>
+      <p class="hint">Only visible/usable by the current admin wallet.</p>
+
+      <label>NGO wallet address</label>
+      <input id="approve-address" placeholder="0x..." />
+      <button id="approve-btn">Approve NGO</button>
+      <button id="revoke-btn" class="secondary" style="margin-left:8px;">Revoke NGO</button>
+
+      <hr style="border:none; border-top:1px solid var(--border); margin:16px 0;" />
+
+      <label>Transfer admin rights to a new wallet</label>
+      <input id="new-admin-address" placeholder="0x..." />
+      <button id="transfer-admin-btn" class="danger">Transfer Admin</button>
+      <p class="hint">Irreversible from this wallet — only do this if you mean to hand off control.</p>
+    </div>
+
+    <div class="card">
+      <h2>Available donations</h2>
+      <label>Sort by</label>
+      <select id="sort-select">
+        <option value="expiry">Nearest Expiry</option>
+        <option value="newest">Newest First</option>
+      </select>
+      <button id="refresh-ngo-btn" class="secondary">Refresh</button>
+      <div id="available-list" class="donation-list" style="margin-top:12px;"></div>
+    </div>
+
+    <div class="card">
+      <h2>My accepted donations</h2>
+      <div id="my-accepted-list" class="donation-list"></div>
+    </div>
+
+    <div class="card">
+      <h2>Distribute food</h2>
+      <p class="hint">Once a donation shows status COLLECTED, record who received it.</p>
+      <label>Food ID</label>
+      <input id="distribute-id" type="number" placeholder="e.g. 1" />
+      <label>Recipient group</label>
+      <input id="recipient-group" placeholder="e.g. Community Center A" />
+      <label>People served</label>
+      <input id="people-served" type="number" placeholder="e.g. 25" />
+      <button id="distribute-btn">Mark Distributed</button>
+    </div>
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/ethers@6.13.4/dist/ethers.umd.min.js"></script>
+  <script src="js/config.js"></script>
+  <script src="js/abi.js"></script>
+  <script src="js/app.js"></script>
+  <script src="js/profile.js"></script>
+  <script src="js/ngo.js"></script>
+</body>
+</html>

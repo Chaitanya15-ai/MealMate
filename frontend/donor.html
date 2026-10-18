@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Donor Dashboard - MealMate</title>
+  <link rel="icon" type="image/png" href="images/logo.png" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <header>
+    <div class="brand"><img src="images/logo.png" alt="MealMate" />MealMate</div>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="donor.html">Donor</a>
+      <a href="ngo.html">NGO</a>
+      <a href="verify.html">Verify</a>
+    </nav>
+    <span id="wallet-status">Not connected</span>
+  </header>
+
+  <main>
+    <div class="card">
+      <h2>Donor registration</h2>
+      <p class="hint">Register once per wallet before creating donations. Only your wallet's role is written on-chain — organization name and location stay in this browser.</p>
+      <p id="donor-profile-banner" class="hint" style="display:none; font-weight:600;"></p>
+      <label>Organization name</label>
+      <input id="org-name" placeholder="e.g. Restaurant ABC" />
+      <label>Location</label>
+      <input id="org-location" placeholder="e.g. Ahmedabad" />
+      <button id="register-donor-btn">Register as Donor</button>
+    </div>
+
+    <div class="card">
+      <h2>Create a donation</h2>
+      <label>Food name</label>
+      <input id="food-name" placeholder="e.g. Vegetable Biryani" />
+
+      <label>Category</label>
+      <select id="food-category">
+        <option>Cooked Food</option>
+        <option>Packaged Food</option>
+        <option>Fruits</option>
+        <option>Vegetables</option>
+        <option>Bakery</option>
+        <option>Groceries</option>
+        <option>Beverages</option>
+      </select>
+
+      <label>Quantity</label>
+      <input id="food-quantity" type="number" min="1" placeholder="e.g. 20" />
+
+      <label>Unit</label>
+      <input id="food-unit" placeholder="e.g. Meals, Kg, Packets" />
+
+      <label>Expiry date &amp; time</label>
+      <input id="food-expiry" type="datetime-local" />
+
+      <label>Pickup location</label>
+      <input id="food-location" placeholder="e.g. ABC Restaurant, MG Road" />
+
+      <label>Description (optional, stored off-chain in this demo)</label>
+      <textarea id="food-description" rows="2" placeholder="Fresh vegetarian meals"></textarea>
+
+      <button id="create-donation-btn">Register Donation</button>
+    </div>
+
+    <div class="card">
+      <h2>My donations</h2>
+      <button id="refresh-donor-btn" class="secondary">Refresh</button>
+      <div id="donor-donation-list" class="donation-list" style="margin-top:12px;"></div>
+    </div>
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/ethers@6.13.4/dist/ethers.umd.min.js"></script>
+  <script src="js/config.js"></script>
+  <script src="js/abi.js"></script>
+  <script src="js/app.js"></script>
+  <script src="js/profile.js"></script>
+  <script src="js/donor.js"></script>
+</body>
+</html>
